@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://YOUR-USERNAME.github.io/sitemap.xml
+Sitemap: https://amanovar.github.io/hub.com/sitemap.xml
+
