@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BCA-HUB - Semester 2 , BCA-201 Mathematics II</title>
+  <meta name="description" content="BCA-201 Mathematics II: Sets, Relations, Partial Orders, Functions of Several Variables, 3D Coordinate Geometry, Multiple Integration. Semester 2 syllabus." />
+  <link rel="canonical" href="https://yourdomain.com/BCA-201-Mathematics-II.html" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="BCA-HUB — BCA-201 Mathematics II" />
+  <meta property="og:description" content="BCA-201 Mathematics II: Sets, Relations, Partial Orders, Functions of Several Variables, 3D Coordinate Geometry, Multiple Integration." />
+  <meta property="og:url" content="https://yourdomain.com/BCA-201-Mathematics-II.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://yourdomain.com/assets/og-bca201.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <style>
+    :root{
+      --bg:#0f172a;        /* slate-900 */
+      --card:#111827ee;    /* gray-900 */
+      --text:#e5e7eb;  
+     }
+    body { margin:0; font-family:Arial, sans-serif; background:#0f172a; color:#e5e7eb; }
+   
+    .scrollable-links::-webkit-scrollbar{display:none;}
+    .scrollable-links a{flex:0 0 auto;padding:8px 14px;border:1px solid #ffffff25;border-radius:999px;font-size:14px;color:#e5e7eb;text-decoration:none;white-space:nowrap;}
+    .scrollable-links a:hover{background:#1f2937;border-color:#ffffff55;}
+    main{max-width:900px;margin:auto;padding:20px;}
+    h2{margin-top:0;color:#22d3ee;}
+    .card{background:#111827cc;border:1px solid #ffffff22;border-radius:12px;padding:16px;margin:15px 0;}
+    .card h3{margin-top:0;color:#a78bfa;}
+    footer{text-align:center;padding:15px;background:#111827;border-top:1px solid #ffffff22;font-size:14px;color:#9ca3af;margin-top:20px;}
+  
+   /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+     background:
+        radial-gradient(800px 400px at 10% -10%, #0ea5e930, transparent 60%),
+        radial-gradient(800px 400px at 110% 10%, #8b5cf630, transparent 60%),
+        var(--bg);
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.5em;
+    }
+
+    .search-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    #search-bar {
+      padding: 8px;
+      width: 70%;
+      max-width: 300px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .sidebar-toggle {
+      font-size: 24px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+
+
+    .scrollable-links {
+      display: flex;
+      margin-top: 50px;
+      overflow-x: auto;
+      background: fixed;
+      gap: 12px;
+      padding: 10px 16px;
+      background: #0b1220cc;
+      border-bottom: 1px solid #ffffff20;
+      scrollbar-width: none;
+    }
+  
+  
+  
+    /* SIDEBAR */
+    .sidebar {
+      width: 160px;
+       background:
+        radial-gradient(800px 400px at 10% -10%, #0ea5e930, transparent 60%),
+        radial-gradient(800px 400px at 110% 10%, #8b5cf630, transparent 60%),
+        var(--bg);
+      color: white;
+      height: 100vh;
+      position: fixed;
+      top: 80px;
+      left: -160px;
+      transition: left 0.3s ease;
+      overflow-y: auto;
+      z-index: 998;
+    }
+
+    .sidebar.show {
+      left: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 12px 18px;
+      border-bottom: 1px solid #444;
+      color: white;
+      text-decoration: none;
+      font-size: 0.95em;
+    }
+
+    .sidebar a:hover {
+       background:
+        radial-gradient(800px 400px at 10% -10%, #0ea5e930, transparent 60%),
+        radial-gradient(800px 400px at 110% 10%, #8b5cf630, transparent 60%),
+        var(--bg);
+    }
+
+     .list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 30px auto 0;
+  max-width: 400px;
+  background: rgba(17,24,39,0.7);
+  border-radius: 10px;
+  padding: 18px 12px;
+  box-shadow: 0 2px 10px #0002;
+}
+
+.list a {
+  display: block;
+  color: #fff;
+  background: #1e293b;
+  text-decoration: none;
+  padding: 12px 10px;
+  border-radius: 7px;
+  font-size: 16px;
+  text-align: center;
+  transition: background 0.2s, color 0.2s;
+  border: 1px solid #334155;
+}
+
+.list a:hover {
+  background: #334155;
+  color: #ffd700;
+}
+
+@media (max-width: 600px) {
+  .list {
+    max-width: 100%;
+    padding: 10px 4px;
+    border-radius: 7px;
+    gap: 7px;
+  }
+  .list a {
+    font-size: 15px;
+    padding: 10px 4px;
+  }
+}
+  
+  </style>
+</head>
+<body>
+  <header>
+    <div class="sidebar-toggle" onclick="toggleSidebar()">☰</div>
+    <div class="logo">BCA-HUB</div>
+   
+    </div>
+  </header>
+
+    <!-- SCROLLABLE LINKS -->
+<div class="scrollable-links">
+  <a href="index.html">Home</a>
+  <a href="allinone.html">All-in-One Utility</a>
+  <a href="GST-Calculator.html">All Calculator</a>
+  <a href="BCA-101-Mathematics-I.html">BCA All Semester</a>
+  
+  <a href="C++Programming-Quiz.html">C Language Quiz</a>
+  <a href="Editor1.html">HTML Editor</a>
+  <a href="Notes-Maker.html">Whiteboard</a>
+  <a href="clanguage.html">C Language</a>
+  <a href="Project-Ideas.html">Project Ideas</a>
+  <a href="Image-to-PDF-Converter.html">Image to PDF Converter</a>
+  <a href="PDF-Library.html">Notes PDF Library</a>
+</div>
+
+<!-- SIDEBAR -->
+  <div class="sidebar" id="sidebar">
+   <a href="#"></a>
+  <br>
+           
+      <a href="BCA-101-Mathematics-I.html">same 1</a>
+        <a href="BCA-201-Mathematics-II.html">seme 2</a>
+        <a href="BCA-301-Object-Oriented-programming.html">seme 3</a>
+        <a href="BCA-401-Computer-Graphics.html">seme 4</a>
+        <a href="BCA-501-Introduction-to-DBMS.html">seme 5</a>
+        <a href="BCA-601-Computer-Network-Security.html">seme 6</a>
+        
+  </div>
+
+
+
+  <main>
+    
+    <h2>BCA-201 Mathematics II</h2>
+      <div class="card">
+        <h3>UNIT-I
+
+SETS</h3>
+        <p>
+      Sets, Subsets, Equal Sets Universal Sets, Finite and Infinite Sets, Operation on Sets, Union, Intersection and Complements of Sets, Cartesian Product, Cardinality of Set, Simple Applications.
+    </p>
+    </div>
+
+      <div class="card">
+        <h3>UNIT-II
+
+RELATIONS AND FUNCTIONS</h3>
+        <p>
+      
+Properties of Relations, Equivalence Relation, Partial Order Relation Function: Domain and Range, Onto, Into and One to One Functions, Composite and Inverse Functions, Introduction of Trignometric, Logarithmic and Exponential Functions.
+    </p>
+    </div>
+
+      <div class="card">
+        <h3>UNIT-III
+
+PARTIAL ORDER RELATIONS AND LATTICES</h3>
+        <p>
+      
+Partial Order Sets, Representation of POSETS using Hasse diagram, Chains, Maximal and Minimal Point, Glb, lub, Lattices & Algebric Systems, Principle of Duality, Basic Properties, Sublattices, Distributed & Complemented Lattics.
+    </p>
+    </div>
+
+      <div class="card">
+        <h3>UNIT-IV
+
+FUNCTIONS OF SEVERAL VARIABLES</h3>
+        <p>
+      Partial Differentiation, Change of Variables, Chain Rule, Extrema of Functions of 2 Variables, Euler’s Theorem.
+    </p>
+    </div>
+
+
+      <div class="card">
+        <h3>UNIT-V
+
+3D COORDINATE GEOMETRY</h3>
+        <p>
+      3D Coordinate Geometry: Coordinates in Space, Direction Cosines, Angle Between Two Lines, Projection of Join of Two Points on a Plane, Equations of Plane, Straight Lines, Conditions for a line to lie on a plane, Conditions for Two Lines to be Coplanar, Shortest Distance Between Two Lines, Equations of Sphere, Tangent plane at a point on the sphere.
+
+
+    </p>
+    </div>
+
+      <div class="card">
+        <h3>UNIT-VI
+
+MULTIPLE INTEGRATION</h3>
+        <p>
+      
+Double Integral in Cartesian and Polar Coordinates to find Area, Change of Order of Integration, Triple Integral to Find Volume of Simple Shapes in Cartesian Coordinates
+    </p>
+    </div>
+<h2>BCA-202 C Programming</h2>
+      <div class="card">
+        <h3>UNIT-I
+
+Arrays</h3>
+        <p>
+      
+Definition, declaration and initialization of one dimensional array; Accessing array elements; Displaying array elements; Sorting arrays; Arrays and function; TwoDimensional array: Declaration and Initialization, Accessing and Displaying, Memory representation of array [Row Major, Column Major]; Multidimensional array
+    </p>
+    </div>
+
+      <div class="card">
+        <h3>UNIT-II
+
+Pointers</h3>
+        <p>
+      Definition and declaration, Initialization; Indirection operator, address of operator; pointer arithmetic; dynamic memory allocation; arrays and pointers; function and pointers
+    </p>
+    </div>
+
+      <div class="card">
+        <h3>UNIT-III
+
+Strings
+</h3>
+        <p>
+      Definition, declaration and initialization of strings; standard library function: strlen(), strcpy(), strcat(), strcmp(); Implementation without using standard library functions
+
+    </p>
+    </div>
+
+      <div class="card">
+        <h3>UNIT-IV
+
+Structures</h3>
+        <p>
+      
+Definition and declaration; Variables initialization; Accessing fields and structure operations; Nested structures; Union: Definition and declaration; Differentiate between Union and structure
+    </p>
+    </div>
+
+      <div class="card">
+        <h3>UNIT-V
+
+Introduction C Preprocessor</h3>
+        <p>
+      
+Definition of Preprocessor; Macro substitution directives; File inclusion directives; Conditional compilation
+    </p>
+<h3>Bitwise Operators</h3>
+<p>Bitwise operators; Shift operators; Masks; Bit field</p>
+    </div>
+
+      <div class="card">
+        <h3>UNIT-VI
+
+File handling</h3>
+        <p>
+      
+Definition of Files, Opening modes of files; Standard function: fopen(), fclose(), feof(), fseek(), fewind();Using text files: fgetc(), fputc(), fscanf()
+    </p>
+    </div>
+<h2>BCA-203 Organization Behavior</h2>
+      <div class="card">
+        <h3>UNIT-I
+
+Fundamentals of Organizational Behaviour</h3>
+        <p>
+      Nature, Scope, Definition and Goals of Organizational Behaviour; Fundamental Concepts of Organizational Behaviour; Models of Organizational Behaviour; Emerging aspects of Organizational Behaviour: Meaning Cultural Diversity, Managing the Perception Process
+    </p>
+    </div>
+
+      <div class="card">
+        <h3>UNIT-II
+
+Perception, Attitude, Values and Motivation</h3>
+        <p>
+      Concept, Nature, Process, Importance, Management Behavioural aspect of Perception. Effects of employee attitudes; Personal and Organizational Values; Job Satisfaction; Nature and Importance of Motivation; Achievement Motive; Theories of Work Motivation: Maslow’s Need Hierarchy Theory McGregcrs’s Theory ‘X’ and Theory ‘Y’
+    </p>
+    </div>
+
+      <div class="card">
+        <h3>UNIT-III
+
+Personality</h3>
+        <p>
+      Definition of Personality, Determinants of Personality; Theories of Personality- Trait and Type Theories, The Big Five Traites, Mytes-Briggs Indicator; Locus of Control, SType A and Type B Assessment of Personality
+    </p>
+    </div>
+
+      <div class="card">
+        <h3>UNIT-IV
+
+Work Stress</h3>
+        <p>
+      Meaning and definition of Stress, Symptoms of Stress; Sources of Stress: Individual Level, Group Level, Organizational Level; Stressors, Extra Organizational Stressors; Effect of Stress – Burnouts; Stress Management – Individual Strategies, Organizational Strategies; Employee Counselling
+    </p>
+    </div>
+
+      <div class="card">
+        <h3>UNIT-V
+
+Group Behaviour and Leadership</h3>
+        <p>
+      Nature of Group, Types of Groups; Nature and Characteristics of team; Team Building, Effective Teamwork; Nature of Leadership, Leadership Styles; Traits of Effective Leaders
+    </p>
+    </div>
+
+      <div class="card">
+        <h3>UNIT-VI
+
+Conflict in Organizations</h3>
+        <p>
+      
+Nature of Conflict, Process of Conflict; Levels of Conflict – Intrapersonal, Interpersonal; Sources of Conflict; Effect of Conflict; Conflict Resolution, Meaning and types of Grievances & Process of Grievances Handling.
+    </p>
+    </div>
+<h2>BCA-204 Digital electronics and Computer Organisation</h2>
+      <div class="card">
+        <h3>UNIT-I
+
+Logic gates and circuit</h3>
+        <p>
+      Gates (OR, AND, NOR, NAND, XOR & XNOR); Demogran’s laws; Boolean laws, Circuit designing techniques (SOP, POS, K-Map)
+    </p>
+    </div>
+
+      <div class="card">
+        <h3>
+UNIT-II
+
+Combinational Building Blocks</h3>
+        <p>
+      Multiplexes; Decoder; Encoder; Adder and Subtracter
+    </p>
+    </div>
+
+      <div class="card">
+        <h3>UNIT-III
+
+Memories</h3>
+        <p>
+ROMs, PROMs, EPROMs, RAMs, Hard Disk, Floppy Disk and CD-ROM.</p>
+        </div>
+
+          <div class="card">
+        <h3>
+UNIT-IV
+
+Sequential Building Blocks</h3>
+        <p>Flip-Flop (RS, D, JK, Master-slave & & T flip-flops); Registers & Shift registers; Counters; Synchronous and Asynchronous Designing method.</p>
+        </div>
+
+          <div class="card">
+        <h3>
+
+UNIT-V
+
+Memory Organization:</h3>
+        <p>: Basic cell of static and dynamic RAM; Building large memories using chips; Associative memory; Cache memory organization and Virtual memory organization</p>
+        </div>
+
+        <h2>BCA-205 Financial Accounting & Management</h2>
+          <div class="card">
+        <h3>UNIT-I</h3>
+        <p>Overview - Meaning and Nature of Financial Accounting, Scope of Financial Accounting, Financial Accounting & Management Accounting, Accounting concepts & convention, Accounting standards in India</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-II</h3>
+        <p>
+Basics of accounting – Capital & Revenue items, Application of Computer in Accounting Double Entry System, Introduction to Journal, Ledger and Procedure for Recording and Posting, Introduction to Trail Balance, Preparation of Final Account, Profit & Loss Account and related concepts, Balance Sheet and related concept.</p>
+        </div>
+
+          <div class="card">
+        <h3>
+UNIT-III</h3>
+        <p>
+Financial statement analysis: Ratio analysis, Funds flow analysis, concepts, uses, Preparation of funds flow statement, simple problem, Cash flow analysis, Concepts, uses, preparation of cash flow statement, simple problem, Break – even analysis.</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-IV</h3>
+        <p>Definition nature and Objective of Financial Management, Long Term Sources of Finance, Introductory idea about capitalization, Capital Structure, Concept of Cost of Capital, introduction, importance, explicit & implicit cost, Measurement of cost of capital, cost of debt.</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-V</h3>
+        <p>
+Concept & Components of working Capital. Factors Influencing the Composition of working Capital, Objectives of working Capital Management – Liquidity Vs. Profitability and working capital policies. Theory of working capital: Nature and concepts</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-VI</h3>
+        <p>Cash Management, Inventory Management and Receivables Management.</p>
+        </div>
+
+      <div class="list">
+  <a href="BCA-101-Mathematics-I.html">same 1</a>
+        <a href="BCA-201-Mathematics-II.html">seme 2</a>
+        <a href="BCA-301-Object-Oriented-programming.html">seme 3</a>
+        <a href="BCA-401-Computer-Graphics.html">seme 4</a>
+        <a href="BCA-501-Introduction-to-DBMS.html">seme 5</a>
+        <a href="BCA-601-Computer-Network-Security.html">seme 6</a>
+        
+  </div>    
+
+  </main>
+
+  <footer>© <span id="year"></span> BCA-HUB</footer>
+
+  <script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+  <script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('show');
+  }
+
+  // Sidebar close on outside touch (for mobile)
+  document.addEventListener('touchstart', function (event) {
+    const sidebar = document.getElementById('sidebar');
+    const toggleBtn = document.querySelector('.sidebar-toggle');
+
+    // agar sidebar open hai aur user ne sidebar aur toggle button ke bahar click kiya
+    if (
+      sidebar.classList.contains('show') &&
+      !sidebar.contains(event.target) &&
+      !toggleBtn.contains(event.target)
+    ) {
+      sidebar.classList.remove('show');
+    }
+  });
+</script>
+
+</body>
+</html>

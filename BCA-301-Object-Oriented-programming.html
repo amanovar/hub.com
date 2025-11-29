@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BCA-HUB — BCA-301 Object Oriented Programming</title>
+  <meta name="description" content="BCA-301 Object Oriented Programming: syllabus and notes covering classes, objects, inheritance, polymorphism, templates, files and exception handling." />
+  <link rel="canonical" href="https://yourdomain.com/BCA-301-Object-Oriented-programming.html" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="BCA-HUB — BCA-301 Object Oriented Programming" />
+  <meta property="og:description" content="Syllabus notes for BCA-301: OOP concepts, classes, inheritance, polymorphism, templates, file handling and exceptions." />
+  <meta property="og:url" content="https://yourdomain.com/BCA-301-Object-Oriented-programming.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://yourdomain.com/assets/og-bca301.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+        :root{
+      --bg:#0f172a;        /* slate-900 */
+      --card:#111827ee;    /* gray-900 */
+      --text:#e5e7eb;  
+     }
+    body { margin:0; font-family:Arial, sans-serif; background:#0f172a; color:#e5e7eb; }
+    
+    .scrollable-links::-webkit-scrollbar{display:none;}
+    .scrollable-links a{flex:0 0 auto;padding:8px 14px;border:1px solid #ffffff25;border-radius:999px;font-size:14px;color:#e5e7eb;text-decoration:none;white-space:nowrap;}
+    .scrollable-links a:hover{background:#1f2937;border-color:#ffffff55;}
+    main{max-width:900px;margin:auto;padding:20px;}
+    h2{margin-top:0;color:#22d3ee;}
+    .card{background:#111827cc;border:1px solid #ffffff22;border-radius:12px;padding:16px;margin:15px 0;}
+    .card h3{margin-top:0;color:#a78bfa;}
+    footer{text-align:center;padding:15px;background:#111827;border-top:1px solid #ffffff22;font-size:14px;color:#9ca3af;margin-top:20px;}
+ 
+ /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+     background:
+        radial-gradient(800px 400px at 10% -10%, #0ea5e930, transparent 60%),
+        radial-gradient(800px 400px at 110% 10%, #8b5cf630, transparent 60%),
+        var(--bg);
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.5em;
+    }
+
+    .search-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    #search-bar {
+      padding: 8px;
+      width: 70%;
+      max-width: 300px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .sidebar-toggle {
+      font-size: 24px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+
+
+    .scrollable-links {
+      display: flex;
+      margin-top: 50px;
+      overflow-x: auto;
+      background: fixed;
+      gap: 12px;
+      padding: 10px 16px;
+      background: #0b1220cc;
+      border-bottom: 1px solid #ffffff20;
+      scrollbar-width: none;
+    }
+
+
+ /* SIDEBAR */
+    .sidebar {
+      width: 160px;
+       background:
+        radial-gradient(800px 400px at 10% -10%, #0ea5e930, transparent 60%),
+        radial-gradient(800px 400px at 110% 10%, #8b5cf630, transparent 60%),
+        var(--bg);
+      color: white;
+      height: 100vh;
+      position: fixed;
+      top: 80px;
+      left: -160px;
+      transition: left 0.3s ease;
+      overflow-y: auto;
+      z-index: 998;
+    }
+
+    .sidebar.show {
+      left: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 12px 18px;
+      border-bottom: 1px solid #444;
+      color: white;
+      text-decoration: none;
+      font-size: 0.95em;
+    }
+
+    .sidebar a:hover {
+      background:
+        radial-gradient(800px 400px at 10% -10%, #0ea5e930, transparent 60%),
+        radial-gradient(800px 400px at 110% 10%, #8b5cf630, transparent 60%),
+        var(--bg);
+    }
+
+
+     .list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 30px auto 0;
+  max-width: 400px;
+  background: rgba(17,24,39,0.7);
+  border-radius: 10px;
+  padding: 18px 12px;
+  box-shadow: 0 2px 10px #0002;
+}
+
+.list a {
+  display: block;
+  color: #fff;
+  background: #1e293b;
+  text-decoration: none;
+  padding: 12px 10px;
+  border-radius: 7px;
+  font-size: 16px;
+  text-align: center;
+  transition: background 0.2s, color 0.2s;
+  border: 1px solid #334155;
+}
+
+.list a:hover {
+  background: #334155;
+  color: #ffd700;
+}
+
+@media (max-width: 600px) {
+  .list {
+    max-width: 100%;
+    padding: 10px 4px;
+    border-radius: 7px;
+    gap: 7px;
+  }
+  .list a {
+    font-size: 15px;
+    padding: 10px 4px;
+  }
+}
+
+ </style>
+</head>
+<body>
+  <header>
+    <div class="sidebar-toggle" onclick="toggleSidebar()">☰</div>
+    <div class="logo">BCA-HUB</div>
+   
+    </div>
+  </header>
+
+   <!-- SCROLLABLE LINKS -->
+<div class="scrollable-links">
+   <a href="index.html">Home</a>
+  <a href="allinone.html">All-in-One Utility</a>
+  <a href="GST-Calculator.html">All Calculator</a>
+  <a href="BCA-101-Mathematics-I.html">BCA All Semester</a>
+  
+  <a href="C++Programming-Quiz.html">C Language Quiz</a>
+  <a href="Editor1.html">HTML Editor</a>
+  <a href="Notes-Maker.html">Whiteboard</a>
+  <a href="clanguage.html">C Language</a>
+  <a href="Project-Ideas.html">Project Ideas</a>
+  <a href="Image-to-PDF-Converter.html">Image to PDF Converter</a>
+  <a href="PDF-Library.html">Notes PDF Library</a>
+</div>
+
+<!-- SIDEBAR -->
+  <div class="sidebar" id="sidebar">
+   <a href="#"> </a>
+  <br>
+           
+   <a href="BCA-101-Mathematics-I.html">same 1</a>
+        <a href="BCA-201-Mathematics-II.html">seme 2</a>
+        <a href="BCA-301-Object-Oriented-programming.html">seme 3</a>
+        <a href="BCA-401-Computer-Graphics.html">seme 4</a>
+        <a href="BCA-501-Introduction-to-DBMS.html">seme 5</a>
+        <a href="BCA-601-Computer-Network-Security.html">seme 6</a>
+        
+  </div>
+
+
+
+  <main>
+    <h2>BCA-301 Object Oriented programming language</h2>
+     <div class="card">
+        <h3>UNIT-I
+
+Introduction</h3>
+        <p>Introducing Object – Oriented Approach, Relating to other paradigms {Functional, Data decomposition}.</p>
+        <h3>Basic terms and ideas</h3>
+        <p>Abstraction, Encapsulation, Inheritance, Polymorphism, Review of C, Difference between C and C++ - cin, cout, new, delete, operators.</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-II
+
+Classes and Objects</h3>
+        <p>Encapsulation, information hiding, abstract data types, Object & classes, attributes, methods, C++ class declaration, State idendity and behaviour of an object, Constructors and destructors, instantiation of objects, Default parameter value, object types, C++ garbage collection, dynamic memory allocation, Metaclass / abstract classes.</p>
+        </div>
+
+          <div class="card">
+        <h3>
+UNIT-III
+
+Inheritance and Polymorphism</h3>
+        <p>
+Inheritance, Class hierarchy, derivation – public, private & protected, Aggregation, composition vs classification hierarchies, Polymorphism, Categorization of polymorphism techniques, Method polymorphism, Polymorphism by parameter, Operator overloading, Parameteric Polymorphism</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-IV
+
+Generic function</h3>
+        <p>
+Template function, function name overloading, Overriding inheritance methods, Run time polymorphism, Multiple Inheritance.
+
+</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-V
+
+Files and Exception Handling</h3>
+        <p>
+Streams and files, Namespaces, Exception handling, Generic Classes</p>
+        </div>
+
+        <h2>BCA-302 Data Structure Using C & C++</h2>
+          <div class="card">
+        <h3>UNIT-I
+
+Introduction to Data Structure and its Characteristics Array</h3>
+        <p>Representation of single and multidimensional arrays; Sprase arrays – lower and upper triangular matrices and Tridiagonal matrices with Vector Representation also.
+
+</p>
+        </div>
+
+          <div class="card">
+        <h3>
+UNIT-II
+
+Stacks and Queues</h3>
+        <p>Introduction and primitive operations on stack; Stack application; Infix, postfix, prefix expressions; Evaluation of postfix expression; Conversion between prefix, infix and postfix, introduction and primitive operation on queues, D- queues and priority queues.</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-III
+
+Lists</h3>
+        <p>
+Introduction to linked lists; Sequential and linked lists, operations such as traversal, insertion, deletion searching, Two way lists and Use of headers</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-IV
+
+Trees</h3>
+        <p>Introduction and terminology; Traversal of binary trees; Recursive algorithms for tree operations such as traversal, insertion, deletion; Binary Search Tree</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-V
+
+B-Trees</h3>
+        <p>Introduction, The invention of B-Tree; Statement of the problem; Indexing with binary search trees; a better approach to tree indexes; B-Trees; working up from the bottom; Example for creating a B-Tree</p>
+        </div>
+
+          <div class="card">
+        <h3>
+UNIT-VI</h3>
+        <p>Sorting Techniques; Insertion sort, selection sort, merge sort, heap sort, searching Techniques: linear search, binary search and hashing</p>
+        </div>
+
+        <h2>BCA-303 Computer Architecture & Assembly Language
+</h2>
+          <div class="card">
+        <h3>UNIT-I</h3>
+        <p>Basic computer organization and design, Instructions and instruction codes, Timing and control/ instruction cycle, Register/ Types of register/ general purpose & special purpose registers/ index registers, Register transfer and micro operations/ register transfer instructions, Memory and memory function, Bus/ Data transfer instructions, Arithmetic logic micro-operations/ shift microoperations, Input/ Output and interrupts, Memory reference instructions, Memory interfacing memory/ Cache memory.</p>
+        </div>
+
+         <div class="card">
+        <h3>UNIT-II
+
+Central Processing Unit</h3>
+        <p>General Register Organization/ stacks organizations instruction formats, addressing modes, Data transfer and manipulation. Program control reduced computer, pipeline/ RISC/ CISC pipeline vector processing/ array processing.
+
+Arithmetic Algorithms: Integer multiplication using shift and add, Booth’s algorithm, Integer division, Floating-point representations
+
+</p>
+        </div>
+
+         <div class="card">
+        <h3>UNIT-III
+
+Computer Arithmetic</h3>
+        <p>Addition, subtraction and multiplication algorithms, divisor algorithms. Floating point, arithmetic operations, decimal arithmetic operations, decimal arithmetic operations.
+
+</p>
+        </div>
+
+         <div class="card">
+        <h3>
+
+UNIT-IV
+
+Input – Output Organization</h3>
+        <p>
+Peripheral devices, Input/output interface, ALU Asynchronous Data transfer, mode of transfer, priority interrupts, Direct memory Address (DMA), Input/ Output processor (IOP), serial communication.</p>
+        </div>
+
+         <div class="card">
+        <h3>UNIT-V
+
+Evaluation of Microprocessor</h3>
+        <p>Overview of Intel 8085 to Intel Pentium processors Basic microprocessors, architecture and interface, internal architecture, external architecture memory and input/ output interface.</p>
+        </div>
+
+         <div class="card">
+        <h3>
+UNIT-VI</h3>
+        <p>Assembly language, Assembler, Assembly level instructions, macro, use of macros in I/C instructions, program loops, programming arithmetic and logic subroutines, Input-Output programming.</p>
+        </div>
+
+        <h2>BCA-304 Business Economics</h2>
+         <div class="card">
+        <h3>UNIT-I
+
+The Scope and Method of Economics, the Economic Problem:</h3>
+        <p>
+: Scarity & Choice, The Price Mechanism, Demand & Supply Equilibrium: The Concept of Elasticity and it’s Applications
+
+The Production Process: output decisions – Revenues Costs and Profit Maximisation
+
+Laws of returns & Returns to Scale: Economics and Diseconomies of scale.</p>
+        </div>
+
+         <div class="card">
+        <h3>UNIT-II
+
+Market Structure:</h3>
+        <p>Equilibrium of a firm and Price, Output Determination under Perfect Competition Monopoly, Monoplastic Competition & Oligopoly</p>
+        </div>
+
+         <div class="card">
+        <h3>UNIT-III
+
+Macro Economic Concerns</h3>
+        <p>Inflalation, Unemployment, Trade-Cycles, Circular Flow upto Four Sector Economy, Government in the Macro Economy: Fiscal Policy, Monetary Policy, Measuring national Income and Output</p>
+        </div>
+
+         <div class="card">
+        <h3>UNIT-IV</h3>
+        <p>The World Economy – WTO, Globalisation, MNC’s, Outsourcing, Foreign Capital in India, Trips, Groups of Twenty (G-20), Issues of dumping, Export-Import Policy 2004-2009</p>
+        </div>
+
+        <h2>BCA-305 Elements of Statistics
+</h2>
+         <div class="card">
+        <h3>UNIT-I
+
+Population, Sample and Data Condensation</h3>
+        <p>Definition and scope of statistics, concept of population and simple with Illustration, Raw data, attributes and variables, classification, frequency distribution, Cumulative frequency distribution.</p>
+        </div>
+
+         <div class="card">
+        <h3>UNIT-II
+
+Measures of Central Tendency</h3>
+        <p>Concept of central Tendency, requirements of a good measures of central tendency, Arithmetic mean, Median, Mode, Harmonic Mean, Geometric mean for grouped and ungrouped data.</p>
+        </div>
+
+        <div class="card">
+        <h3>UNIT-III
+
+Measures of Dispersion:</h3>
+        <p>Concept of dispersion, Absolute and relative measure of dispersion, range variance, Standard deviation, Coefficient of variation.</p>
+        </div>
+
+         <div class="card">
+        <h3>UNIT-IV
+
+Permutations and Combinations</h3>
+        <p>Permutations of ‘n’ dissimilar objects taken ‘r’ at a time (with or without repetitions). n Pr =
+
+n!/(n-r) !(without proof). Combinations of ‘r’ objects taken from ‘n’ objects. nCr = n!/(r!(n-r)!) (without proof) . Simple examples, Applications.</p>
+        </div>
+
+         <div class="card">
+        <h3>UNIT-V
+
+Sample space, Events and Probability</h3>
+        <p>Experiments and random experiments, Ideas of deterministic and non-deterministic experiments; Definition of sample space, discrete sample space, events; Types of events, Union and intersections of two or more events, mutually exclusive events, Complementary event, Exhaustive event; Simple examples
+
+Classical definition of probability, Addition theorem of probability without Proof (upto three events are expected). Definition of conditional probability Definition of independence of two events, simple numerical problems.</p>
+        </div>
+
+         <div class="card">
+        <h3>UNIT-VI
+
+Statistical Quality Control</h3>
+        <p>Introduction, control limits, specification limits, tolerance limits, process and product control; Control charts for X and R; Control charts for number of defective {n-p chart} ,control charts for number of defects {c - chart}</p>
+        </div>
+ <div class="list">
+   <a href="BCA-101-Mathematics-I.html">same 1</a>
+        <a href="BCA-201-Mathematics-II.html">seme 2</a>
+        <a href="BCA-301-Object-Oriented-programming.html">seme 3</a>
+        <a href="BCA-401-Computer-Graphics.html">seme 4</a>
+        <a href="BCA-501-Introduction-to-DBMS.html">seme 5</a>
+        <a href="BCA-601-Computer-Network-Security.html">seme 6</a>
+        
+  </div>
+        </main>
+
+
+  
+
+  <footer>© <span id="year"></span> BCA-HUB</footer>
+
+  <script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+  <script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('show');
+  }
+
+  // Sidebar close on outside touch (for mobile)
+  document.addEventListener('touchstart', function (event) {
+    const sidebar = document.getElementById('sidebar');
+    const toggleBtn = document.querySelector('.sidebar-toggle');
+
+    // agar sidebar open hai aur user ne sidebar aur toggle button ke bahar click kiya
+    if (
+      sidebar.classList.contains('show') &&
+      !sidebar.contains(event.target) &&
+      !toggleBtn.contains(event.target)
+    ) {
+      sidebar.classList.remove('show');
+    }
+  });
+</script>
+
+</body>
+</html>

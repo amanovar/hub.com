@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BCA-HUB - Semester 2</title>
+  <style>
+        :root{
+      --bg:#0f172a;        /* slate-900 */
+      --card:#111827ee;    /* gray-900 */
+      --text:#e5e7eb;  
+     }
+    body { margin:0; font-family:Arial, sans-serif; background:#0f172a; color:#e5e7eb; }
+   
+    .scrollable-links::-webkit-scrollbar{display:none;}
+    .scrollable-links a{flex:0 0 auto;padding:8px 14px;border:1px solid #ffffff25;border-radius:999px;font-size:14px;color:#e5e7eb;text-decoration:none;white-space:nowrap;}
+    .scrollable-links a:hover{background:#1f2937;border-color:#ffffff55;}
+    main{max-width:900px;margin:auto;padding:20px;}
+    h2{margin-top:0;color:#22d3ee;}
+    .card{background:#111827cc;border:1px solid #ffffff22;border-radius:12px;padding:16px;margin:15px 0;}
+    .card h3{margin-top:0;color:#a78bfa;}
+    footer{text-align:center;padding:15px;background:#111827;border-top:1px solid #ffffff22;font-size:14px;color:#9ca3af;margin-top:20px;}
+   /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+     background:
+        radial-gradient(800px 400px at 10% -10%, #0ea5e930, transparent 60%),
+        radial-gradient(800px 400px at 110% 10%, #8b5cf630, transparent 60%),
+        var(--bg);
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.5em;
+    }
+
+    .search-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    #search-bar {
+      padding: 8px;
+      width: 70%;
+      max-width: 300px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .sidebar-toggle {
+      font-size: 24px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+
+
+    .scrollable-links {
+      display: flex;
+      margin-top: 50px;
+      overflow-x: auto;
+      background: fixed;
+      gap: 12px;
+      padding: 10px 16px;
+      background: #0b1220cc;
+      border-bottom: 1px solid #ffffff20;
+      scrollbar-width: none;
+    }
+  /* SIDEBAR */
+    .sidebar {
+      width: 160px;
+       background:
+        radial-gradient(800px 400px at 10% -10%, #0ea5e930, transparent 60%),
+        radial-gradient(800px 400px at 110% 10%, #8b5cf630, transparent 60%),
+        var(--bg);
+      color: white;
+      height: 100vh;
+      position: fixed;
+      top: 80px;
+      left: -160px;
+      transition: left 0.3s ease;
+      overflow-y: auto;
+      z-index: 998;
+    }
+
+    .sidebar.show {
+      left: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 12px 18px;
+      border-bottom: 1px solid #444;
+      color: white;
+      text-decoration: none;
+      font-size: 0.95em;
+    }
+
+    .sidebar a:hover {
+      background:
+        radial-gradient(800px 400px at 10% -10%, #0ea5e930, transparent 60%),
+        radial-gradient(800px 400px at 110% 10%, #8b5cf630, transparent 60%),
+        var(--bg);
+    }
+
+   .list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 30px auto 0;
+  max-width: 400px;
+  background: rgba(17,24,39,0.7);
+  border-radius: 10px;
+  padding: 18px 12px;
+  box-shadow: 0 2px 10px #0002;
+}
+
+.list a {
+  display: block;
+  color: #fff;
+  background: #1e293b;
+  text-decoration: none;
+  padding: 12px 10px;
+  border-radius: 7px;
+  font-size: 16px;
+  text-align: center;
+  transition: background 0.2s, color 0.2s;
+  border: 1px solid #334155;
+}
+
+.list a:hover {
+  background: #334155;
+  color: #ffd700;
+}
+
+@media (max-width: 600px) {
+  .list {
+    max-width: 100%;
+    padding: 10px 4px;
+    border-radius: 7px;
+    gap: 7px;
+  }
+  .list a {
+    font-size: 15px;
+    padding: 10px 4px;
+  }
+}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="sidebar-toggle" onclick="toggleSidebar()">☰</div>
+    <div class="logo">BCA-HUB</div>
+   
+    </div>
+  </header>
+
+  <!-- SCROLLABLE LINKS -->
+<div class="scrollable-links">
+   <a href="index.html">Home</a>
+  <a href="allinone.html">All-in-One Utility</a>
+  <a href="GST-Calculator.html">All Calculator</a>
+  <a href="BCA-101-Mathematics-I.html">BCA All Semester</a>
+  
+  <a href="C++Programming-Quiz.html">C Language Quiz</a>
+  <a href="Editor1.html">HTML Editor</a>
+  <a href="Notes-Maker.html">Whiteboard</a>
+  <a href="clanguage.html">C Language</a>
+  <a href="Project-Ideas.html">Project Ideas</a>
+  <a href="Image-to-PDF-Converter.html">Image to PDF Converter</a>
+  <a href="PDF-Library.html">Notes PDF Library</a>
+</div>
+
+
+
+<!-- SIDEBAR -->
+  <div class="sidebar" id="sidebar">
+   <a href="#"> </a>
+  <br>
+           
+    <a href="BCA-101-Mathematics-I.html">same 1</a>
+        <a href="BCA-201-Mathematics-II.html">seme 2</a>
+        <a href="BCA-301-Object-Oriented-programming.html">seme 3</a>
+        <a href="BCA-401-Computer-Graphics.html">seme 4</a>
+        <a href="BCA-501-Introduction-to-DBMS.html">seme 5</a>
+        <a href="BCA-601-Computer-Network-Security.html">seme 6</a>
+        
+  </div>
+
+
+  <main>
+    
+    
+<h2>BCA-601 Computer Network Security</h2>
+          <div class="card">
+        <h3>UNIT-I
+
+Introduction:</h3>
+        <p>: Attack, Services and Mechanism, Model for Internetwork Security.
+
+Cryptography: Notion of Plain Text, Encryption, Key, Cipher Text, Decryption and cryptanalysis; Public Key Encryption, digital Signatures and Authentication.</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-II
+
+Network Security:</h3>
+        <p>Authentication Application: Kerveros, X.509, Directory Authentication Service, Pretty Good Privacy, S/Mime.</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-III
+
+IP security Architecture</h3>
+        <p>: Overview, Authentication header, Encapsulating Security Pay Load combining Security Associations, Key Management.</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-IV
+
+Web Security:</h3>
+        <p>: Requirement, Secure Socket Layer, Transport Layer Security, and Secure Electronic Transactions.</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-V
+
+Network Management Security</h3>
+        <p>Overview of SNMP Architecutre-SMMPVI1 Communication Facility, SNMPV3.</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-VI
+
+System Security</h3>
+        <p>: Intruders, Viruses and Relate Threats, Firewall Design Principles. Comprehensive examples using available software platforms/case tools, Configuration Management</p>
+        </div>
+
+        <h2>BCA-602 Information System Analysis Design and Implementation</h2>
+         <div class="card">
+        <h3>UNIT-I
+
+Overview of System Analysis and Design:</h3>
+        <p>Systems Development Life Cycle; concept and Models: requirements determination, logical design, physical design, test planning, implementation, planning and performance evaluation, communication, interviewing, presentation skills; group dynamics; risk and feasibility analysis; group based approaches, JAD, structures walkthroughs, and design and code reviews; prototyping; database design software quality metrics; application categories software package evaluation and acquisition.</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-II
+
+Information Requirement Analysis:</h3>
+        <p>Process modeling with physical logical data flow diagrams, data modeling with logical entity relationship diagrams.</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-III
+
+Developing a Proposal:</h3>
+        <p>: Feasibility study and cost estimation System Design:
+: Design of input and control, design of output and control, file design/database design, process, user interface design, prototyping; software constructors; documentation.</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-IV
+
+Application Development Methodologies and CASE tools</h3>
+        <p>Information engineering structured system analysis and design, and object oriented methodologies for application development data modeling, process modeling, user interface design, and prototyping, use of computer aided software engineering (CASE) tools in the analysis design and implementation of information systems.</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-V
+
+Design and Implementation on OO Platform:</h3>
+        <p>
+: Object oriented analysis and design through object modeling technique, object modeling, dynamic modeling and functional object oriented design and object oriented programming systems for implementation, object oriented data bases.
+
+</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-VI
+
+Managerial issues in Software Projects:</h3>
+        <p>Introduction to software markets; planning of software projects, size and cost estimates; project scheduling; measurement of software quality and productivity, ISO and capability maturity models for organizational growth.</p>
+        </div>
+
+        <h2>BCA-603 E-Commerce</h2>
+          <div class="card">
+        <h3>UNIT-I
+
+Introduction to E-Commerce:</h3>
+        <p>The Scope of Electronic Commerce, Definition of Electronic Commerce, Electronic E-commerce and the Trade Cycle, Electronic Markets, Electronic Data Interchange, Internet Commerce, E-Commerce in Perspective.</p>
+        <h3>Business Strategy in an Electronic Age:</h3>
+        <p>: Supply Chains, Porter’s Value Chain Model, Inter Organizational Value Chains, Competitive Strategy, Porter’s Model, First Mover Advantage Sustainable Competitive Advantage, Competitive Advantage using E -Commerce, Business Strategy, Introduction to Business Strategy, Strategic Implications of IT, Technology, Business Environment, Business Capability, Exiting Business Strategy, Strategy Formulation & Implementation Planning, E-Commerce Implementation, E-Commerce Evaluation.</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-II
+
+Business-to-Business Electronic Commerce</h3>
+        <p>: Characteristics of B2B EC, Models of B2B Ec, Procurement Management Using the Buyer’s Internal Marketplace, Just in Time Delivery, Other B2B Models, Auctions and Services from Traditional to Internet Based EDI, Intergration with Back-end Information System, The Role of Software Agents for B2B EC, Electronic marketing in B2B, Solutions of B2B EC, Managerial Issues, Electronic Data Interchange (EDI), EDI: The Nuts and Bolts, EDI & Business.</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-III
+
+Internet and Extranet</h3>
+        <p>Automotive Network Exchange, The Largest Extranet, Architecture of the Internet, Intranet and Extranet, Intranet software, Applications of Intranets, Intranet Application Case Studies, Considerations in Intranet Deployment, The Extranets, The structures of Extranets, Extranet products & services, Applications of Extranets, Business Models of Extranet Applications, Managerial Issues</p>
+        <h3>Electronic Payment Systems</h3>
+        <p>Is SET a failure, Electronic Payments & Protocols, Security Schemes in Electronic payment systems, Electronic Credit card system on the Internet, Electronic Fund transfer and Debit cards on the Internet, Stored – value Cards and E- Cash, Electronic Check Systems, Prospect of Electronic Payment Systems, Managerial Issues.</p>
+        </div>
+
+        
+          <div class="card">
+        <h3>UNIT-IV
+
+Public Policy: From Legal Issues to Privacy</h3>
+        <p>: EC- Related Legal Incidents, Legal Incidents, Ethical & Other Public Policy Issues, Protecting Privacy, Protecting Intellectual Property, Free speech, Internet Indecency & Censorship, Taxation & Encryption Policies, Other Legal Issues: Contracts, Gambling & More, Consumer & Seller Protection In EC.</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-V</h3>
+        <p>Infrastructure For EC : It takes more than Technology, A Network Of Networks, Internet Protocols, Web- Based client/ Server, Internet Security, selling on the web, Chatting on the Web, Multimedia delivery, Analyzing Web Visits, Managerial Issues.</p>
+        </div>
+
+        <h2>BCA-604 Knowledge Management.</h2>
+          <div class="card">
+        <h3>UNIT-I
+
+Business Intelligence and Business Decisions</h3>
+        <p>: Modeling Decision Process; Decision support systems; Group decision support and Groupware Technologies.</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-II
+
+Executive Information and support Systems:</h3>
+        <p>
+: Business Expert System and AI, OLTO & OLAP; Data Warehousing; Data Marts, Data Warehouse architecture; Tools for data warehousing.</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-III
+
+Multi- Dimensional analysis:</h3>
+        <p>
+Data mining and knowledge discovery; Data mining and Techniques; Data mining of Advance Databases.</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-IV
+
+Knowledge Management Systems:</h3>
+        <p>Concept and Structure KM systems, techniques of knowledge management appreciation & limitation.</p>
+        </div>
+
+   <div class="list">
+  <a href="BCA-101-Mathematics-I.html">same 1</a>
+        <a href="BCA-201-Mathematics-II.html">seme 2</a>
+        <a href="BCA-301-Object-Oriented-programming.html">seme 3</a>
+        <a href="BCA-401-Computer-Graphics.html">seme 4</a>
+        <a href="BCA-501-Introduction-to-DBMS.html">seme 5</a>
+        <a href="BCA-601-Computer-Network-Security.html">seme 6</a>
+        
+  </div>
+</main>
+  <footer>© <span id="year"></span> BCA-HUB</footer>
+
+  <script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+  <script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('show');
+  }
+
+  // Sidebar close on outside touch (for mobile)
+  document.addEventListener('touchstart', function (event) {
+    const sidebar = document.getElementById('sidebar');
+    const toggleBtn = document.querySelector('.sidebar-toggle');
+
+    // agar sidebar open hai aur user ne sidebar aur toggle button ke bahar click kiya
+    if (
+      sidebar.classList.contains('show') &&
+      !sidebar.contains(event.target) &&
+      !toggleBtn.contains(event.target)
+    ) {
+      sidebar.classList.remove('show');
+    }
+  });
+</script>
+
+</body>
+</html>

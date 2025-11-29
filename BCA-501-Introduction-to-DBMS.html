@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BCA-HUB - Semester 2</title>
+  <style>
+        :root{
+      --bg:#0f172a;        /* slate-900 */
+      --card:#111827ee;    /* gray-900 */
+      --text:#e5e7eb;  
+     }
+    body { margin:0; font-family:Arial, sans-serif; background:#0f172a; color:#e5e7eb; }
+   
+    .scrollable-links::-webkit-scrollbar{display:none;}
+    .scrollable-links a{flex:0 0 auto;padding:8px 14px;border:1px solid #ffffff25;border-radius:999px;font-size:14px;color:#e5e7eb;text-decoration:none;white-space:nowrap;}
+    .scrollable-links a:hover{background:#1f2937;border-color:#ffffff55;}
+    main{max-width:900px;margin:auto;padding:20px;}
+    h2{margin-top:0;color:#22d3ee;}
+    .card{background:#111827cc;border:1px solid #ffffff22;border-radius:12px;padding:16px;margin:15px 0;}
+    .card h3{margin-top:0;color:#a78bfa;}
+    footer{text-align:center;padding:15px;background:#111827;border-top:1px solid #ffffff22;font-size:14px;color:#9ca3af;margin-top:20px;}
+   /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+     background:
+        radial-gradient(800px 400px at 10% -10%, #0ea5e930, transparent 60%),
+        radial-gradient(800px 400px at 110% 10%, #8b5cf630, transparent 60%),
+        var(--bg);
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.5em;
+    }
+
+    .search-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    #search-bar {
+      padding: 8px;
+      width: 70%;
+      max-width: 300px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .sidebar-toggle {
+      font-size: 24px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+
+
+    .scrollable-links {
+      display: flex;
+      margin-top: 50px;
+      overflow-x: auto;
+      background: fixed;
+      gap: 12px;
+      padding: 10px 16px;
+      background: #0b1220cc;
+      border-bottom: 1px solid #ffffff20;
+      scrollbar-width: none;
+    }
+  /* SIDEBAR */
+    .sidebar {
+      width: 160px;
+       background:
+        radial-gradient(800px 400px at 10% -10%, #0ea5e930, transparent 60%),
+        radial-gradient(800px 400px at 110% 10%, #8b5cf630, transparent 60%),
+        var(--bg);
+      color: white;
+      height: 100vh;
+      position: fixed;
+      top: 80px;
+      left: -160px;
+      transition: left 0.3s ease;
+      overflow-y: auto;
+      z-index: 998;
+    }
+
+    .sidebar.show {
+      left: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 12px 18px;
+      border-bottom: 1px solid #444;
+      color: white;
+      text-decoration: none;
+      font-size: 0.95em;
+    }
+
+    .sidebar a:hover {
+      background:
+        radial-gradient(800px 400px at 10% -10%, #0ea5e930, transparent 60%),
+        radial-gradient(800px 400px at 110% 10%, #8b5cf630, transparent 60%),
+        var(--bg);
+    }
+
+
+     .list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 30px auto 0;
+  max-width: 400px;
+  background: rgba(17,24,39,0.7);
+  border-radius: 10px;
+  padding: 18px 12px;
+  box-shadow: 0 2px 10px #0002;
+}
+
+.list a {
+  display: block;
+  color: #fff;
+  background: #1e293b;
+  text-decoration: none;
+  padding: 12px 10px;
+  border-radius: 7px;
+  font-size: 16px;
+  text-align: center;
+  transition: background 0.2s, color 0.2s;
+  border: 1px solid #334155;
+}
+
+.list a:hover {
+  background: #334155;
+  color: #ffd700;
+}
+
+@media (max-width: 600px) {
+  .list {
+    max-width: 100%;
+    padding: 10px 4px;
+    border-radius: 7px;
+    gap: 7px;
+  }
+  .list a {
+    font-size: 15px;
+    padding: 10px 4px;
+  }
+}
+  </style>
+</head>
+<body>
+ <header>
+    <div class="sidebar-toggle" onclick="toggleSidebar()">☰</div>
+    <div class="logo">BCA-HUB</div>
+   
+    </div>
+  </header>
+
+  <!-- SCROLLABLE LINKS -->
+<div class="scrollable-links">
+   <a href="index.html">Home</a>
+  <a href="allinone.html">All-in-One Utility</a>
+  <a href="GST-Calculator.html">All Calculator</a>
+  <a href="BCA-101-Mathematics-I.html">BCA All Semester</a>
+  
+  <a href="C++Programming-Quiz.html">C Language Quiz</a>
+  <a href="Editor1.html">HTML Editor</a>
+  <a href="Notes-Maker.html">Whiteboard</a>
+  <a href="clanguage.html">C Language</a>
+  <a href="Project-Ideas.html">Project Ideas</a>
+  <a href="Image-to-PDF-Converter.html">Image to PDF Converter</a>
+  <a href="PDF-Library.html">Notes PDF Library</a>
+</div>
+
+
+<!-- SIDEBAR -->
+  <div class="sidebar" id="sidebar">
+   <a href="3"> </a>
+  <br>
+           
+   
+        
+  </div>
+
+
+  <main>
+    
+    
+<h2>BCA-501 Introduction to DBMS</h2>
+          <div class="card">
+        <h3>UNIT-I
+
+Introduction:</h3>
+        <p>
+Characteristics of database approach, data models, DBMS architecture and data independence.</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-II
+
+E-R Modeling:</h3>
+        <p>
+: Entity types, Entity set, attribute and key, relationships, relation types, roles and structural constraints, weak entities, enhanced E-R and object modeling, Sub classes; Super classes, inheritance, specialization and generalization.</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-III
+
+File Organization:</h3>
+        <p>: Indexed sequential access files; implementation using B & B++ trees, hashing, hashing functions, collision resolution, extendible hashing, dynamic hashing approach implementation and performance</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-IV
+
+Relational Data Model</h3>
+        <p>: Relational model concepts, relational constraints, relational alzebra SQL: SQL queries, programming using SQL.</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-V
+
+EER and ER to relational mapping:</h3>
+        <p>Data base design using EER to relational language.</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-VI
+
+Data Normalization:</h3>
+        <p>: Functional Dependencies, Normal form up to 3rd normal form. Concurrency Control: Transaction processing, locking techniques and associated, database recovery, security and authorization. Recovery Techniques, Database Security</p>
+        </div>
+
+        <h2>BCA- 502 Java Programming and Dynamic Webpage Design</h2>
+         <div class="card">
+        <h3>UNIT-I
+
+Java Programming:
+</h3>
+        <p>: Data types, control structured, arrays, strings, and vector, classes (inheritance, package, exception handling) multithreaded programming.</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-II</h3>
+        <p>Java applets, AWT controls (Button, Labels, Combo box, list and other Listeners, menu bar) layout manager, string handling (only main functions)
+
+</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-III</h3>
+        <p>Networking (datagram socket and TCP/IP based server socket) event handling, JDBC:
+
+Introduction, Drivers, Establishing Connection, Connection Pooling.
+
+</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-IV</h3>
+        <p>HTML: use of commenting, headers, text styling, images, formatting text with , special characters, horizontal rules, line breaks, table, forms, image maps, tags, < FRAMESET> tags, file formats including image formats.</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-V
+
+Java Servlets:</h3>
+        <p>: Introduction, HTTP Servlet Basics, The Servlet Lifecycle, Retrieving Information, Sending HTML Information, Session Tracking, Database Connectivity
+
+</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-VI
+
+Java Server Pages:</h3>
+        <p>: Introducing Java Server Pages, JSP Overview, Setting Up the JSP Environment, Generating Dynamic Content, Using Custom Tag Libraries and the JSP Standard Tag Library, Processing Input and Output</p>
+        </div>
+
+
+        <h2>BCA-503 Computer Network</h2>
+          <div class="card">
+        <h3>
+UNIT-I
+
+Basic Concepts</h3>
+        <p>: Components of data communication, distributed processing, standards and organizations. Line configuration, topology, Transmission mode, and categories of networks. OSI and TCP/IP Models: Layers and their functions, comparison of models.
+
+Digital Transmission: Interfaces and Modems: DTE-DCE Interface, Modems, Cable modems</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-II
+
+Transmission Media</h3>
+        <p>: Guided and unguided, Attenuation, distortion, noise, throughput, propagation speed and time, wavelength, Shannon capacity, comparison of media</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-III
+
+Telephony:</h3>
+        <p>: Multiplexing, error detection and correction: Many to one, One to many, WDM, TDM, FDM, Circuit switching, packet switching and message switching
+
+Data link control protocols: Line discipline, flow control, error control, synchronous and asynchronous protocols, character and bit oriented protocols, Link access procedures</p>
+<h3>
+Point to point controls</h3>
+<p>Transmission states, PPP layers, LCP, Authentication, NCP. ISDN: Services, Historical outline, subscriber’s access, ISDN Layers and broadcast ISDN. UNIT-IV</p>
+        <h3>Devices:</h3>
+        <p>Repeaters, bridges, gateways, routers, The Network Layer; Design issues, Routing algorithms, Congestion control Algorithms, Quality of service, Internetworking, Network-Layer in the internet</p>
+</div>
+
+          <div class="card">
+        <h3>UNIT-V
+
+Transport and upper layers in OSI Model:</h3>
+        <p>Transport layer functions, connection management, functions of session layers, presentation layer and application layer.</p>
+        </div>
+
+        <h2>BCA-504 Numerical Methods</h2>
+          <div class="card">
+        <h3>UNIT-I
+
+Roots of Equations:</h3>
+        <p>: Bisections Method, False Position Method, Newton’s Raphson Method, Rate of convergence of Newton’s method.</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-II
+
+Interpolation and Extrapolation</h3>
+        <p>: Finite Differences, The operator E, Newton’s Forward and Backward Differences, Newton’s dividend differences formulae, Lagrange’s Interpolation formula for unequal Intervals, Gauss’s Interpolation formula, Starling formula, Bessel’s formula, Laplace-Everett formula.</p>
+        </div>
+
+         <div class="card">
+        <h3>UNIT-III
+
+Numerical Differentiation Numerical Integration :</h3>
+        <p>Introduction, direct methods, maxima and minima of a tabulated function, General Quadratic formula, Trapezoidal rule, Simpson’s One third rule, Simpson’s three- eight rule.</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-IV
+
+Solution of Linear Equation
+</h3>
+        <p>: Gauss’s Elimination method and Gauss’s Siedel iterative method.</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-V
+
+Solution of Differential Equations</h3>
+        <p>Euler’s method, Picard’s method, Fourth-order Ranga – Kutta method</p>
+        </div>
+ <div class="list">
+  <a href="BCA-101-Mathematics-I.html">same 1</a>
+        <a href="BCA-201-Mathematics-II.html">seme 2</a>
+        <a href="BCA-301-Object-Oriented-programming.html">seme 3</a>
+        <a href="BCA-401-Computer-Graphics.html">seme 4</a>
+        <a href="BCA-501-Introduction-to-DBMS.html">seme 5</a>
+        <a href="BCA-601-Computer-Network-Security.html">seme 6</a>
+        
+  </div>
+</main>
+  <footer>© <span id="year"></span> BCA-HUB</footer>
+
+  <script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+  <script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('show');
+  }
+
+  // Sidebar close on outside touch (for mobile)
+  document.addEventListener('touchstart', function (event) {
+    const sidebar = document.getElementById('sidebar');
+    const toggleBtn = document.querySelector('.sidebar-toggle');
+
+    // agar sidebar open hai aur user ne sidebar aur toggle button ke bahar click kiya
+    if (
+      sidebar.classList.contains('show') &&
+      !sidebar.contains(event.target) &&
+      !toggleBtn.contains(event.target)
+    ) {
+      sidebar.classList.remove('show');
+    }
+  });
+</script>
+
+</body>
+</html>

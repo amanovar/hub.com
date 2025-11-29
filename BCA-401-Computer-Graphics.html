@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+   <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BCA-HUB — BCA-401 Computer Graphics & Multimedia</title>
+
+  <!-- SEO -->
+  <meta name="description" content="BCA-401 Computer Graphics & Multimedia: syllabus covering scan conversion, clipping, transformations, solid modeling, multimedia and related tools." />
+  <link rel="canonical" href="https://yourdomain.com/BCA-401-Computer-Graphics.html" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="BCA-HUB — BCA-401 Computer Graphics & Multimedia" />
+  <meta property="og:description" content="Syllabus notes for BCA-401: scan conversion, clipping, transformations, curves & surfaces, multimedia basics and tools." />
+  <meta property="og:url" content="https://yourdomain.com/BCA-401-Computer-Graphics.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://yourdomain.com/assets/og-bca401.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+        :root{
+      --bg:#0f172a;        /* slate-900 */
+      --card:#111827ee;    /* gray-900 */
+      --text:#e5e7eb;  
+     }
+    body { margin:0; font-family:Arial, sans-serif; background:#0f172a; color:#e5e7eb; }
+    
+    .scrollable-links::-webkit-scrollbar{display:none;}
+    .scrollable-links a{flex:0 0 auto;padding:8px 14px;border:1px solid #ffffff25;border-radius:999px;font-size:14px;color:#e5e7eb;text-decoration:none;white-space:nowrap;}
+    .scrollable-links a:hover{background:#1f2937;border-color:#ffffff55;}
+    main{max-width:900px;margin:auto;padding:20px;}
+    h2{margin-top:0;color:#22d3ee;}
+    .card{background:#111827cc;border:1px solid #ffffff22;border-radius:12px;padding:16px;margin:15px 0;}
+    .card h3{margin-top:0;color:#a78bfa;}
+    footer{text-align:center;padding:15px;background:#111827;border-top:1px solid #ffffff22;font-size:14px;color:#9ca3af;margin-top:20px;}
+  
+   /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+     background:
+        radial-gradient(800px 400px at 10% -10%, #0ea5e930, transparent 60%),
+        radial-gradient(800px 400px at 110% 10%, #8b5cf630, transparent 60%),
+        var(--bg);
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.5em;
+    }
+
+    .search-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    #search-bar {
+      padding: 8px;
+      width: 70%;
+      max-width: 300px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .sidebar-toggle {
+      font-size: 24px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+
+
+    .scrollable-links {
+      display: flex;
+      margin-top: 50px;
+      overflow-x: auto;
+      background: fixed;
+      gap: 12px;
+      padding: 10px 16px;
+      background: #0b1220cc;
+      border-bottom: 1px solid #ffffff20;
+      scrollbar-width: none;
+    }
+  /* SIDEBAR */
+    .sidebar {
+      width: 160px;
+       background:
+        radial-gradient(800px 400px at 10% -10%, #0ea5e930, transparent 60%),
+        radial-gradient(800px 400px at 110% 10%, #8b5cf630, transparent 60%),
+        var(--bg);
+      color: white;
+      height: 100vh;
+      position: fixed;
+      top: 80px;
+      left: -160px;
+      transition: left 0.3s ease;
+      overflow-y: auto;
+      z-index: 998;
+    }
+
+    .sidebar.show {
+      left: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 12px 18px;
+      border-bottom: 1px solid #444;
+      color: white;
+      text-decoration: none;
+      font-size: 0.95em;
+    }
+
+    .sidebar a:hover {
+       background:
+        radial-gradient(800px 400px at 10% -10%, #0ea5e930, transparent 60%),
+        radial-gradient(800px 400px at 110% 10%, #8b5cf630, transparent 60%),
+        var(--bg);
+    }
+
+
+     .list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 30px auto 0;
+  max-width: 400px;
+  background: rgba(17,24,39,0.7);
+  border-radius: 10px;
+  padding: 18px 12px;
+  box-shadow: 0 2px 10px #0002;
+}
+
+.list a {
+  display: block;
+  color: #fff;
+  background: #1e293b;
+  text-decoration: none;
+  padding: 12px 10px;
+  border-radius: 7px;
+  font-size: 16px;
+  text-align: center;
+  transition: background 0.2s, color 0.2s;
+  border: 1px solid #334155;
+}
+
+.list a:hover {
+  background: #334155;
+  color: #ffd700;
+}
+
+@media (max-width: 600px) {
+  .list {
+    max-width: 100%;
+    padding: 10px 4px;
+    border-radius: 7px;
+    gap: 7px;
+  }
+  .list a {
+    font-size: 15px;
+    padding: 10px 4px;
+  }
+}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="sidebar-toggle" onclick="toggleSidebar()">☰</div>
+    <div class="logo">BCA-HUB</div>
+   
+    </div>
+  </header>
+
+  <!-- SCROLLABLE LINKS -->
+<div class="scrollable-links">
+  <a href="index.html">Home</a>
+  <a href="allinone.html">All-in-One Utility</a>
+  <a href="GST-Calculator.html">All Calculator</a>
+  <a href="BCA-101-Mathematics-I.html">BCA All Semester</a>
+  
+  <a href="C++Programming-Quiz.html">C Language Quiz</a>
+  <a href="Editor1.html">HTML Editor</a>
+  <a href="Notes-Maker.html">Whiteboard</a>
+  <a href="clanguage.html">C Language</a>
+  <a href="Project-Ideas.html">Project Ideas</a>
+  <a href="Image-to-PDF-Converter.html">Image to PDF Converter</a>
+  <a href="PDF-Library.html">Notes PDF Library</a>
+</div>
+
+
+<!-- SIDEBAR -->
+  <div class="sidebar" id="sidebar">
+   <a href="#"> </a>
+  <br>
+           
+      
+        
+  </div>
+
+
+  <main>
+    
+    
+<h2>BCA-401 Computer Graphics & Multimedia Application</h2>
+          <div class="card">
+        <h3>UNIT-I
+
+Introduction</h3>
+        <p>: The Advantages of Interactive Graphics, Representative Uses of Computer Graphics, Classification of Application Development of Hardware and software for computer Graphics, Conceptual Framework for Interactive Graphics, Overview, Scan: Converting Lines, Scan Converting Circles, Scan Converting Ellipses.</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-II</h3>
+        <p>Hardcopy Technologies, Display Technologies, Raster-Scan Display System, Video
+
+Controller, Random-Scan Display processor, Input Devices for Operator Interaction, Image Scanners, Working exposure on graphics tools like Dream Weaver, 3D Effects etc,</p>
+       <h3>Clipping</h3>
+       <p>Southland- Cohen Algorithm, Cyrus-Beck Algorithm, Midpoint Subdivision Algorithm
+
+</p>
+</div>
+
+          <div class="card">
+        <h3>UNIT-III
+
+Geometrical Transformation</h3>
+        <p>2D Transformation, Homogeneous Coordinates and Matrix Representation of 2D Transformations, composition of 2D Transformations, the Window-to-Viewport Transformations, Introduction to 3D Transformations Matrix.</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-IV
+
+Representing Curves & Surfaces</h3>
+        <p>Polygon meshes parametric, Cubic Curves, Quadric Surface;</p>
+<h3>Solid Modeling</h3>
+<p>Representing Solids, Regularized Boolean Set Operation primitive Instancing Sweep Representations, Boundary Representations, Spatial Partitioning Representations, Constructive Solid Geometry Comparison of Representations</p>
+    </div>
+
+          <div class="card">
+        <h3>UNIT-V</h3>
+        <p>Introductory Concepts: Multimedia Definition, CD-ROM and the multimedia highway, Computer Animation (Design, types of animation, using different functions) UNIT-VI
+
+
+Uses of Multimedia, Introduction to making multimedia – The stage of Project, hardware & software requirements to make good multimedia skills and Training opportunities in Multimedia Motivation for Multimedia usage</p>
+        </div>
+
+        <h2>BCA-402 Operating System</h2>
+          <div class="card">
+        <h3>UNIT-I</h3>
+        <p>Introduction, What is an operating system, Simple Batch Systems, Multi-programmed Batch systems, Time- Sharing Systems, Personal – Computer Systems, Parallel systems, Distributed
+
+systems, Real- Time Systems</p>
+<h3>Memory Management:</h3>
+<p>: Background, Logical versus physical Address space, swapping, Contiguous allocation, Paging, Segmentation</p>
+<h3>Virtual Memory:</h3>
+<p>: Demand Paging, Page Replacement, Page- replacement Algorithms, Performance of Demand Paging, Allocation of Frames, Thrashing, Other Considerations</p>
+        </div>
+
+         <div class="card">
+        <h3>UNIT-II
+
+Processes:</h3>
+        <p>Process Concept, Process Scheduling, Operation on Processes</p>
+        <h3>CPU Scheduling:</h3>
+        <p>: Basic Concepts, Scheduling Criteria, Scheduling Algorithms, Multiple – Processor Scheduling</p>
+        
+    <h3>Process Synchronization</h3>
+    <p>: Background, The Critical – Section Problem, Synchronization Hardware, Semaphores, Classical Problems of Synchronization</p>
+</div>
+
+          <div class="card">
+        <h3>UNIT-III
+
+Deadlocks:</h3>
+        <p>System Model, Deadlock Characterization, Methods for Handling Deadlocks, Deadlock prevention, Deadlock Avoidance, Deadlock Detection, Recovery from Deadlock</p>
+        </div>
+
+          <div class="card">
+        <h3>
+UNIT-IV
+
+Device Management</h3>
+        <p>: Techniques for Device Management, Dedicated Devices, Shared Devices, Virtual Devices; Input or Output Devices, Storage Devices, Buffering, Secondary Storage Structure: Disk Structure, Disk Scheduling, Disk Management, Swap- Space Management, Disk Reliability</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-V
+
+Information Management</h3>
+        <p>: Introduction, A Simple File system, General Model of a File System, Symbolic File System, Basic File System, Access Control Verification, Logical File System, Physical File system File – System Interface; File Concept, Access Methods, Directory Structure, Protection, Consistency Semantics File – System Implementation: File – System Structure, Allocation Methods, Free- Space Management</p>
+        </div>
+
+        <h2>BCA-403 Software Engineering</h2>
+          <div class="card">
+        <h3>UNIT-I
+
+Software Engineering:</h3>
+        <p>: Definition and paradigms, A generic view of software engineering.</p>
+        </div>
+
+          <div class="card">
+        <h3>
+UNIT-II
+
+Requirements Analysis:</h3>
+        <p>
+: Statement of system scope, isolation of top level processes and entitles and their allocation to physical elements, refinement and review.
+
+Analyzing a problem, creating a software specification document, review for correctness, consistency, and completeness.</p>
+        </div>
+
+         <div class="card">
+        <h3>UNIT-III
+
+Designing Software Solutions</h3>
+        <p>
+: Refining the software Specification; Application of fundamental design concept for data, architectural and procedural designs using software blue print methodology and object oriented design paradigm; Creating design document: Review of conformance to software requirements and quality</p>
+        </div>
+
+         <div class="card">
+        <h3>UNIT-IV
+
+Software Implementation:</h3>
+        <p>: Relationship between design and implementation, Implementation issues and programming support environment, Coding the procedural design, Good coding style and review of correctness and readability</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-V
+
+Software Maintenance:</h3>
+        <p>Maintenance as part of software evaluation, reasons for maintenance, types of maintenance (Perceptive, adoptive, corrective), designing for maintainability, techniques for maintenance.</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-VI</h3>
+        <p>Comprehensive examples using available software platforms/case tools, Configuration Management.</p>
+        </div>
+
+        <h2>BCA-404 Optimization Techniques</h2>
+          <div class="card">
+        <h3>UNIT-I
+
+Linear programming</h3>
+        <p>Central Problem of linear Programming various definitions included Statements of basic theorem and also their properties, simplex methods, primal and dual simplex method, transport problem, tic-tac problem, and its solution. Assignment problem and its solution. Graphical Method Formulation, Linear Programming Problem.</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-II
+
+Queuing Theory</h3>
+        <p>Characteristics of queuing system, Classification of Queuing Model Single Channel Queuing Theory, Generalization of steady state M/M/1 queuing models(Model-I, Model-II).</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-III
+
+Replacement Theory</h3>
+        <p>Replacement of item that deteriorates replacement of items that fail. Group replacement and individual replacement.</p>
+        </div>
+
+           <div class="card">
+        <h3>UNIT-IV
+
+Inventory Theory</h3>
+        <p>Cost involved in inventory problem- single item deterministic model economics long size model without shortage and with shorter having production rate infinite and finite.</p>
+        </div>
+
+          <div class="card">
+        <h3>UNIT-V
+
+Job Sequencing
+</h3>
+        <p>Introduction, solution of sequencing problem Johnson s algorithm for n jobs through 2 machines</p>
+        </div>
+
+        <h2>BCA-405 Mathematics –II</h2>
+          <div class="card">
+        <h3>UNIT-I
+
+COMPLEX VARIABLES</h3>
+        <p>Complex Number System, Algebra of Complex Numbers, Polar Form, Powers and Roots, Functions of Complex Variables, Elementary Functions, Inverse Trigonometric Function.</p>
+        </div>
+
+        <div class="card">
+        <h3>UNIT-II
+
+SEQUENCE, SERIES AND CONVERGENCE</h3>
+        <p>: Sequence, Finite and Infinite Sequences, Monotonic Sequence, Bounded Sequence, Limit of a Sequence, Convergence of a Sequence, Series, Partial Sums, Convergent Series, Theorems on Convergence of Series (statement, alternating series, conditional convergent), Leibnitz Test, Limit Comparison Test, Ratio Test, Cauchy’s Root Test, Convergence of Binomial and Logarithmic Series, Raabe’s Test, Logarithmic Test, Cauchy’s Integral Test (without proof)</p>
+        </div>
+
+        <div class="card">
+        <h3>
+UNIT-III
+
+VECTOR CALCULUS:</h3>
+        <p>
+Differentiation of Vectors, Scalar and Vector Fields, Gradient, Directional Derivatives, Divergence and Curl and their Physical Meaning.</p>
+        </div>
+
+        <div class="card">
+        <h3>UNIT-IV
+
+FOURIER SERIES:</h3>
+        <p>Periodic Functions, Fourier series, Fourier Series of Even and Odd Functions, Half Range Series.</p>
+        </div>
+
+        <div class="card">
+        <h3>UNIT-V
+
+ORDINARY DIFFERENTIAL EQUATIONS OF FIRST ORDER:</h3>
+        <p>Variable - Separable Method, Homogeneous Differential Equations, Exact Differential Equations, Linear Differential Equations, Bernoulli’s Differential Equations, Differential Equations of First Order and First Degree by Integrating Factor.</p>
+        </div>
+
+        <div class="card">
+        <h3>UNIT-VI
+
+ORDINARY DIFFERENTIAL EQUATIONS OF SECOND ORDER:</h3>
+        <p>Homogenous Differential Equations with Constant Coefficients, Cases of Complex Roots and Repeated
+
+Roots, Differential Operator, Solutions by Methods of Direct Formulae for Particular Integrals, Solution by Undetermined Coefficients, Cauchy Differential Equations, (only Real and Distinct Roots) Operator Method for Finding Particular Integrals, (Direct Formulae).</p>
+        </div>
+
+         
+ <div class="list">
+   <a href="BCA-101-Mathematics-I.html">same 1</a>
+        <a href="BCA-201-Mathematics-II.html">seme 2</a>
+        <a href="BCA-301-Object-Oriented-programming.html">seme 3</a>
+        <a href="BCA-401-Computer-Graphics.html">seme 4</a>
+        <a href="BCA-501-Introduction-to-DBMS.html">seme 5</a>
+        <a href="BCA-601-Computer-Network-Security.html">seme 6</a>
+        
+  </div>
+  </main>
+
+  <footer>© <span id="year"></span> BCA-HUB</footer>
+
+  <script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+  <script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('show');
+  }
+
+  // Sidebar close on outside touch (for mobile)
+  document.addEventListener('touchstart', function (event) {
+    const sidebar = document.getElementById('sidebar');
+    const toggleBtn = document.querySelector('.sidebar-toggle');
+
+    // agar sidebar open hai aur user ne sidebar aur toggle button ke bahar click kiya
+    if (
+      sidebar.classList.contains('show') &&
+      !sidebar.contains(event.target) &&
+      !toggleBtn.contains(event.target)
+    ) {
+      sidebar.classList.remove('show');
+    }
+  });
+</script>
+
+</body>
+</html>

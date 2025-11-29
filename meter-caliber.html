@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meter ⇄ Caliber Converter</title>
+  <style>
+    :root {
+      --bg: #0a0f1a;
+      --card: #121b2e;
+      --accent: #06b6d4;
+      --muted: #94a3b8;
+      --text: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 900px;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    header h1 {
+      font-size: 26px;
+      color: var(--accent);
+    }
+
+    header p {
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px 12px;
+      font-size: 15px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text);
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      padding: 10px 14px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.2s;
+      font-weight: 600;
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: #001f26;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .result {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 10px;
+      font-weight: bold;
+      text-align: center;
+      color: var(--accent);
+      font-size: 18px;
+    }
+
+    footer {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Meter ⇄ Caliber Converter</h1>
+      <p>Convert meters to calibers and vice versa — with millimeter or inch options.</p>
+    </header>
+
+    <div class="grid">
+      <div class="card">
+        <label for="value">Enter Value</label>
+        <input type="number" id="value" value="1" />
+
+        <label for="mode">Conversion Type</label>
+        <select id="mode">
+          <option value="m-to-c">Meters → Calibers</option>
+          <option value="c-to-m">Calibers → Meters</option>
+        </select>
+
+        <label for="caliberSize">Caliber Size</label>
+        <div style="display:flex;gap:10px;">
+          <input type="number" id="caliberSize" value="7.62" />
+          <select id="caliberUnit" style="width:100px">
+            <option value="mm">mm</option>
+            <option value="in">in</option>
+          </select>
+        </div>
+
+        <label for="precision">Decimal Precision</label>
+        <input type="number" id="precision" min="0" max="10" value="4" />
+
+        <div class="controls">
+          <button id="convertBtn" class="btn primary">Convert</button>
+          <button id="copyBtn" class="btn">Copy</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Result</h3>
+        <div id="result" class="result">0</div>
+        <p id="details" style="color:var(--muted);font-size:14px;margin-top:8px"></p>
+        <footer>1 inch = 25.4 mm. Conversion auto-calculated.</footer>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const $ = id => document.getElementById(id);
+    const valueEl = $('value');
+    const modeEl = $('mode');
+    const caliberSizeEl = $('caliberSize');
+    const caliberUnitEl = $('caliberUnit');
+    const precisionEl = $('precision');
+    const resultEl = $('result');
+    const detailsEl = $('details');
+
+    function caliberToMeters(size, unit) {
+      return unit === 'mm' ? size / 1000 : size * 0.0254;
+    }
+
+    function compute() {
+      const val = parseFloat(valueEl.value);
+      const mode = modeEl.value;
+      const caliberSize = parseFloat(caliberSizeEl.value);
+      const caliberUnit = caliberUnitEl.value;
+      const precision = parseInt(precisionEl.value);
+      const calMeters = caliberToMeters(caliberSize, caliberUnit);
+      
+      let result = 0;
+      if (mode === 'm-to-c') {
+        result = val / calMeters;
+        resultEl.textContent = result.toFixed(precision) + ' calibers';
+        detailsEl.textContent = `${val} m ÷ ${caliberSize} ${caliberUnit} = ${result.toFixed(precision)} calibers`;
+      } else {
+        result = val * calMeters;
+        resultEl.textContent = result.toFixed(precision) + ' m';
+        detailsEl.textContent = `${val} calibers × ${caliberSize} ${caliberUnit} = ${result.toFixed(precision)} m`;
+      }
+    }
+
+    $('convertBtn').addEventListener('click', compute);
+    $('copyBtn').addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(resultEl.textContent);
+        alert('Copied to clipboard!');
+      } catch {
+        alert('Copy failed');
+      }
+    });
+  </script>
+</body>
+</html>

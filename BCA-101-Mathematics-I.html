@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BCA-HUB - Semester 1, BCA-101 Mathematics - I</title>
+<meta name="description" content="BCA-101 Mathematics I: Determinants, Matrices, Limits, Differentiation, Integration, Vector Algebra — semester 1 syllabus and notes for BCA students." />
+<link rel="canonical" href="https://yourdomain.com/BCA-101-Mathematics-I.html" />
+<meta name="robots" content="index, follow" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="BCA-HUB — BCA-101 Mathematics I" />
+<meta property="og:description" content="BCA-101 Mathematics I: Determinants, Matrices, Limits, Differentiation, Integration, Vector Algebra — semester 1 syllabus." />
+<meta property="og:url" content="https://yourdomain.com/BCA-101-Mathematics-I.html" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://yourdomain.com/assets/og-bca101.png" />
+<meta name="twitter:card" content="summary_large_image" />
+
+
+
+  <style>
+    :root{
+      --bg:#0f172a;        /* slate-900 */
+      --card:#111827ee;    /* gray-900 */
+      --text:#e5e7eb;  
+     }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      padding-top: 72px; /* adjust if header height differs */
+    }
+    
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+     background:
+        radial-gradient(800px 400px at 10% -10%, #0ea5e930, transparent 60%),
+        radial-gradient(800px 400px at 110% 10%, #8b5cf630, transparent 60%),
+        var(--bg);
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.5em;
+    }
+
+    .search-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    #search-bar {
+      padding: 8px;
+      width: 70%;
+      max-width: 300px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .sidebar-toggle {
+      font-size: 24px;
+      cursor: pointer;
+      margin-left: 10px;
+      background: transparent;
+      border: none;
+      color: inherit;
+    }
+
+    .sidebar-toggle:focus {
+      outline: 3px solid rgba(108,156,255,.25);
+      border-radius: 6px;
+    }
+
+
+
+    .scrollable-links {
+      display: flex;
+      margin-top: 50px;
+      overflow-x: auto;
+      background: fixed;
+      gap: 12px;
+      padding: 10px 16px;
+      background: #0b1220cc;
+      border-bottom: 1px solid #ffffff20;
+      scrollbar-width: none;
+    }
+    .scrollable-links::-webkit-scrollbar { display: none; }
+    .scrollable-links a {
+      flex: 0 0 auto;
+      padding: 8px 14px;
+      border: 1px solid #ffffff25;
+      border-radius: 999px;
+      font-size: 14px;
+      color: #e5e7eb;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .scrollable-links a:hover {
+      background: #1f2937;
+      border-color: #ffffff55;
+    }
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+    h2 {
+      margin-top: 0;
+      color: #22d3ee;
+    }
+    .card {
+      background: #111827cc;
+      border: 1px solid #ffffff22;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 15px 0;
+    }
+    .card h3 { margin-top: 0; color: #a78bfa; }
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #111827;
+      border-top: 1px solid #ffffff22;
+      font-size: 14px;
+      color: #9ca3af;
+      margin-top: 20px;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      width: 160px;
+       background:
+        radial-gradient(800px 400px at 10% -10%, #0ea5e930, transparent 60%),
+        radial-gradient(800px 400px at 110% 10%, #8b5cf630, transparent 60%),
+        var(--bg);
+      color: white;
+      height: 100vh;
+      position: fixed;
+      top: 100px;
+      left: -160px;
+      transition: left 0.3s ease;
+      overflow-y: auto;
+      z-index: 998;
+    }
+
+    .sidebar.show {
+      left: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 12px 18px;
+      border-bottom: 1px solid #444;
+      color: white;
+      text-decoration: none;
+      font-size: 0.95em;
+    }
+
+    .sidebar a:hover {
+     background:
+        radial-gradient(800px 400px at 10% -10%, #0ea5e930, transparent 60%),
+        radial-gradient(800px 400px at 110% 10%, #8b5cf630, transparent 60%),
+        var(--bg);
+    }
+
+
+     .list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 30px auto 0;
+  max-width: 400px;
+  background: rgba(17,24,39,0.7);
+  border-radius: 10px;
+  padding: 18px 12px;
+  box-shadow: 0 2px 10px #0002;
+}
+
+.list a {
+  display: block;
+  color: #fff;
+  background: #1e293b;
+  text-decoration: none;
+  padding: 12px 10px;
+  border-radius: 7px;
+  font-size: 16px;
+  text-align: center;
+  transition: background 0.2s, color 0.2s;
+  border: 1px solid #334155;
+}
+
+.list a:hover {
+  background: #334155;
+  color: #ffd700;
+}
+
+@media (max-width: 600px) {
+  .list {
+    max-width: 100%;
+    padding: 10px 4px;
+    border-radius: 7px;
+    gap: 7px;
+  }
+  .list a {
+    font-size: 15px;
+    padding: 10px 4px;
+  }
+}
+  </style>
+</head>
+<body>
+  <header>
+  <button class="sidebar-toggle" onclick="toggleSidebar()" aria-controls="sidebar" aria-expanded="false">☰</button>
+  <div class="logo">BCA-HUB</div>
+</header>
+ 
+
+  <!-- SCROLLABLE LINKS -->
+<div class="scrollable-links">
+ <a href="index.html">Home</a>
+  <a href="allinone.html">All-in-One Utility</a>
+  <a href="GST-Calculator.html">All Calculator</a>
+  <a href="BCA-101-Mathematics-I.html">BCA All Semester</a>
+  
+  <a href="C++Programming-Quiz.html">C Language Quiz</a>
+  <a href="Editor1.html">HTML Editor</a>
+  <a href="Notes-Maker.html">Whiteboard</a>
+  <a href="clanguage.html">C Language</a>
+  <a href="Project-Ideas.html">Project Ideas</a>
+  <a href="Image-to-PDF-Converter.html">Image to PDF Converter</a>
+  <a href="PDF-Library.html">Notes PDF Library</a>
+</div>
+
+<!-- SIDEBAR -->
+  <div class="sidebar" id="sidebar">
+   <a href="#"> </a>
+  <br>
+           
+      <a href="BCA-101-Mathematics-I.html">same 1</a>
+        <a href="BCA-201-Mathematics-II.html">seme 2</a>
+        <a href="BCA-301-Object-Oriented-programming.html">seme 3</a>
+        <a href="BCA-401-Computer-Graphics.html">seme 4</a>
+        <a href="BCA-501-Introduction-to-DBMS.html">seme 5</a>
+        <a href="BCA-601-Computer-Network-Security.html">seme 6</a>
+        
+  </div>
+
+  <main>
+    <h2>Semester 1 Subjects</h2>
+  <!-- MAIN CONTENT -->
+<main>
+  <h2>BCA-101 Mathematics - I</h2>
+
+  <div class="card">
+    <h3>Unit I: Determinants & Matrices</h3>
+    <p>
+      <b>Determinants:</b> Definition, Minors, Cofactors, Properties of Determinants. <br>
+      <b>Matrices:</b> Definition, Types of Matrices, Addition, Subtraction, Scalar Multiplication and Multiplication of Matrices, 
+      Adjoint, Inverse, Cramer's Rule, Rank of Matrix, Dependence of Vectors, Eigen Vectors of a Matrix, 
+      Caley-Hamilton Theorem (without proof).
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Unit II: Limits & Continuity</h3>
+    <p>
+      Limit at a Point, Properties of Limit, Computation of Limits of Various Types of Functions, 
+      Continuity at a Point, Continuity Over an Interval, Intermediate Value Theorem, Types of Discontinuities.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Unit III: Differentiation</h3>
+    <p>
+      Derivative, Derivatives of Sum, Differences, Product & Quotients, Chain Rule, Derivatives of Composite Functions, 
+      Logarithmic Differentiation, Rolle’s Theorem, Mean Value Theorem, Expansion of Functions (Maclaurin’s & Taylor’s), 
+      Indeterminate Forms, L’Hospital’s Rule, Maxima & Minima, Curve Tracing, Successive Differentiation & Leibnitz Theorem.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Unit IV: Integration</h3>
+    <p>
+      Integral as Limit of Sum, Fundamental Theorem of Calculus (without proof), Indefinite Integrals, Methods of Integration – 
+      Substitution, By Parts, Partial Fractions, Reduction Formulae for Trigonometric Functions, Gamma and Beta Functions (definition).
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Unit V: Vector Algebra</h3>
+    <p>
+      Definition of a vector in 2 and 3 Dimensions; Double and Triple Scalar and Vector Product and physical interpretation of area and volume.
+    </p>
+  </div>
+  <br>
+  <h2>BCA-102 Programming Principle Algorithm</h2>
+  <div class="card">
+    <h3>UNIT-I</h3>
+    <p>
+        
+
+Introduction to ‘C’ Language History, Structures of ‘C’ Programming, Function as building blocks
+
+Language Fundamentals Character set, C Tokens, Keywords, Identifiers, Variables, Constant, Data Types, Comments.
+    </p>
+  </div>
+
+
+    <div class="card">
+        <h3>UNIT-II: Operators</h3>
+        <p>
+      Types of operators, Precedence and Associativity, Expression, Statement and types of statements
+
+Build in Operators and function Console based I/O and related built in I/O function: printf(), scanf(), getch(), getchar(), putchar(); Concept of header files, Preprocessor directives: #include, #define.
+    </p>
+    </div>
+
+     <div class="card">
+        <h3>UNIT-III:
+
+Control structures</h3>
+        <p>
+      
+Decision making structures: If, If-else, Nested If-else, Switch; Loop Control structures: While, Do-while, for, Nested for loop; Other statements: break, continue, goto, exit.
+    </p>
+    </div>
+
+     <div class="card">
+        <h3>
+UNIT-IV:
+
+Introduction to problem solving</h3>
+        <p>
+      Concept: problem solving, Problem solving techniques (Trail & Error, Brain Stroming, Divide & Conquer) Steps in problem solving (Define Problem, Analyze Problem, Explore Solution) Algorithms and Flowcharts (Definitions, Symbols), Characteristics of an algorithm Conditionals in pseudo-code, Loops in pseudo code Time complexity: Big-Oh notation, efficiency Simple Examples: Algorithms and flowcharts (Real Life Examples)
+    </p>
+    </div>
+
+     <div class="card">
+        <h3>
+UNIT-V:
+
+Simple Arithmetic Problems</h3>
+        <p>Addition / Multiplication of integers, Determining if a number is +ve / -ve / even / odd, Maximum of 2 numbers, 3 numbers, Sum of first n numbers, given n numbers, Integer division, Digit reversing, Table generation for n, ab , Factorial, sine series, cosine series, nCr , Pascal Triangle, Prime number, Factors of a number, Other problems such as Perfect number, GCD numbers etc (Write algorithms and draw flowchart), Swapping
+
+        </p>
+      </div>
+
+             <div class="card">
+        <h3>UNIT-VI:
+
+Functions</h3>
+        <p>
+      Basic types of function, Declaration and definition, Function call, Types of function, Parameter passing, Call by value, Call by reference, Scope of variable, Storage classes, Recursion.
+
+
+    </p>
+    </div>
+<h2>BCA-103 Computer Fundamental & Office Automation</h2>
+     <div class="card">
+        <h3>UNIT-I:
+
+Introduction to Computers</h3>
+        <p>
+      Introduction, Characteristics of Computers, Block diagram of computer.Types of computers and
+
+features, Mini Computers, Micro Computers, Mainframe Computers, Super Computers.Types of
+
+Programming Languages (Machine Languages, Assembly Languages, High Level Languages).Data Organization, Drives, Files, Directories.Types of Memory (Primary And
+
+Secondary) RAM, ROM, PROM, EPROM.
+
+Secondary Storage Devices (FD, CD, HD, Pen drive)
+
+I/O Devices (Scanners, Plotters, LCD, Plasma Display)
+
+Number Systems
+
+Introduction to Binary, Octal, Hexadecimal system Conversion, Simple Addition, Subtraction, Multiplication
+    </p>
+    </div>
+
+
+
+     <div class="card">
+        <h3>
+UNIT-II:
+
+Algorithm and Flowcharts</h3>
+        <p>
+      Algorithm: Definition, Characteristics, Advantages and disadvantages, Examples,Flowchart: Definition, Define symbols of flowchart, Advantages and disadvantages, Examples
+    </p>
+    </div>
+
+     <div class="card">
+        <h3>UNIT-III:
+
+Operating System and Services in O.S.</h3>
+        <p>
+      Dos – History, Files and Directories, Internal and External Commands, Batch Files, Types of O.S.
+    </p>
+    </div>
+
+     <div class="card">
+        <h3>
+UNIT-IV:
+
+Windows Operating Environment</h3>
+        <p>
+      Features of MS – Windows, Control Panel, Taskbar, Desktop, Windows Application, Icons, Windows Accessories, Notepad, Paintbrush.
+    </p>
+    </div>
+
+     <div class="card">
+        <h3>
+UNIT-V:
+
+Editors and Word Processors</h3>
+        <p>
+      
+Basic Concepts, Examples: MS-Word, Introduction to desktop publishing.
+    </p>
+    </div>
+
+     <div class="card">
+        <h3>UNIT-VI:
+
+Spreadsheets and Database packages</h3>
+        <p>
+      
+Purpose, usage, command, MS-Excel, Creation of files in MS-Access, Switching between application, MS-PowerPoint.
+
+
+    </p>
+    </div>
+
+<h2>
+  BCA-104 Principle of Management
+</h2>
+     <div class="card">
+        <h3>UNIT-I
+
+Nature of Management:</h3>
+        <p>
+      Meaning, Definition, it’s nature purpose, importance & Functions, Management as Art, Science & Profession- Management as social System Concepts of management-AdministrationOrganization, Management Skills, Levels of Management.
+    </p>
+    </div>
+
+      <div class="card">
+        <h3>UNIT-II
+
+Evolution of Management Thought:</h3>
+        <p>
+      Contribution of F.W.Taylor, Henri Fayol, Elton Mayo, Chester Barhard & Peter Drucker to the management thought. Business Ethics & Social Responsibility: Concept, Shift to Ethics, Tools of Ethics.
+    </p>
+    </div>
+
+      <div class="card">
+        <h3>UNIT-III
+
+Functions of Management: Part-I</h3>
+        <p>
+      Planning – Meaning- Need & Importance, types, Process of Planning, Barriers to Effective
+
+Planning, levels – advantages & limitations. Forecasting- Need & Techniques
+
+Decision making-Types - Process of rational decision-making & techniques of decision-making
+
+Organizing – Elements of organizing & processes: Types of organizations, Delegation of authority – Need, difficulties Delegation – Decentralization
+
+Staffing – Meaning & Importance, Direction – Nature – Principles, Communication – Types & Importance
+    </p>
+    </div>
+
+      <div class="card">
+        <h3>
+UNIT-IV
+
+Functions of Management: Part-II</h3>
+        <p>
+      
+Motivation – Importance – theories
+
+Leadership – Meaning –styles, qualities & function of leader Controlling - Need, Nature, importance, Process & Techniques, Total Quality Management Coordination – Need – Importance
+    </p>
+    </div>
+
+      <div class="card">
+        <h3>UNIT – V</h3>
+        <p>
+      Management of Change: Models for Change, Force for Change, Need for Change, Alternative Change Techniques, New Trends in Organization Change, Stress Management.
+    </p>
+    </div>
+
+      <div class="card">
+        <h3>Unit-VI
+
+Strategic Management</h3>
+        <p>
+      Definition, Classes of Decisions, Levels of Decision, Strategy, Role of different Strategist, Relevance of Strategic Management and its Benefits, Strategic Management in India
+    </p>
+    </div>
+<h2>BCA-106 Business Communication</h2>
+      <div class="card">
+        <h3>UNIT-I
+
+Means of Communication:</h3>
+        <p>
+      Meaning and Definition – Process – Functions – Objectives – Importance – Essentials of good communication – Communication barriers, 7C’s of Communication
+    </p>
+    </div>
+
+      <div class="card">
+        <h3>UNIT-II
+
+Types of Communication:</h3>
+        <p>
+      Oral Communication:
+
+Meaning, nature and scope – Principle of effective oral communication – Techniques of effective speech – Media of oral communication (Face -to-face conversation – Teleconferences – Press Conference – Demonstration – Radio Recording – Dictaphone – Meetings – Rumour – Demonstration and Dramatisation – Public address system – Grapevine – Group Discussion – Oral report – Closed circuit TV). The art of listening – Principles of good listening.
+    </p>
+    </div>
+
+      <div class="card">
+        <h3>
+UNIT-III
+
+Written Communication</h3>
+        <p>
+      Purpose of writing, Clarity in Writing, Pricinciple of Effective writing, Writing Techniques, Electronic Writing Process.
+    </p>
+    </div>
+
+      <div class="card">
+        <h3>UNIT-IV
+
+Business Letters & Reports</h3>
+        <p>
+      Need and functions of business letters – Planning & layout of business letter – Kinds of business letters – Essentials of effective correspondence, Purpose, Kind and Objective of Reports, Writing Reports.
+    </p>
+    </div>
+
+      <div class="card">
+        <h3>UNIT-V
+
+Drafting of business letters:</h3>
+        <p>
+      
+Enquiries and replies – Placing and fulfilling orders – Complaints and follow-up Sales letters – Circular letters Application for employment and resume
+    </p>
+    </div>
+
+      <div class="card">
+        <h3>UNIT-VI
+
+Information Technology for Communication:</h3>
+        <p>
+      
+Word Processor – Telex – Facsimile(Fax) – E-mail – Voice mail –Internet – Multimedia – Teleconferencing – Mobile Phone Conversation – Video Conferencing –SMS – Telephone Answering Machine – Advantages and limitations of these types.
+    </p>
+    </div>
+
+    
+
+ <div class="list">
+  <a href="BCA-101-Mathematics-I.html">same 1</a>
+        <a href="BCA-201-Mathematics-II.html">seme 2</a>
+        <a href="BCA-301-Object-Oriented-programming.html">seme 3</a>
+        <a href="BCA-401-Computer-Graphics.html">seme 4</a>
+        <a href="BCA-501-Introduction-to-DBMS.html">seme 5</a>
+        <a href="BCA-601-Computer-Network-Security.html">seme 6</a>
+        
+  </div>
+</main>
+
+  <footer>© <span id="year"></span> BCA-HUB</footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('show');
+  }
+
+  // Sidebar close on outside touch (for mobile)
+  document.addEventListener('touchstart', function (event) {
+    const sidebar = document.getElementById('sidebar');
+    const toggleBtn = document.querySelector('.sidebar-toggle');
+
+    // agar sidebar open hai aur user ne sidebar aur toggle button ke bahar click kiya
+    if (
+      sidebar.classList.contains('show') &&
+      !sidebar.contains(event.target) &&
+      !toggleBtn.contains(event.target)
+    ) {
+      sidebar.classList.remove('show');
+    }
+  });
+
+  const toggleBtn = document.querySelector('.sidebar-toggle');
+toggleBtn.addEventListener('click', () => {
+  const sidebar = document.getElementById('sidebar');
+  const expanded = sidebar.classList.toggle('show');
+  toggleBtn.setAttribute('aria-expanded', expanded);
+});
+</script>
+
+</body>
+</html>
